@@ -1,0 +1,33 @@
+<!--
+  users_table.html - Partial pour le tableau des utilisateurs
+  Ce template partiel est utilisé pour générer les lignes du tableau des utilisateurs
+  Il est chargé dynamiquement via AJAX lors des opérations sur les utilisateurs
+-->
+
+{% for user in users %}
+<tr>
+    <!-- Informations de l'utilisateur -->
+    <td>{{ user.username }}</td>
+    <td>{{ user.role }}</td>
+    
+    <!-- Actions disponibles -->
+    <td>
+        <!-- Formulaire de suppression -->
+        <form class="inline delete-user-form">
+            <input type="hidden" name="username" value="{{ user.username }}">
+            <button type="submit">Supprimer</button>
+        </form>
+        
+        <!-- Formulaire de modification du mot de passe -->
+        <form class="inline update-user-form">
+            <input type="hidden" name="username" value="{{ user.username }}">
+            <input type="text" 
+                   name="password" 
+                   placeholder="Nouveau mot de passe" 
+                   required
+                   autocomplete="new-password">
+            <button type="submit">Changer le mot de passe</button>
+        </form>
+    </td>
+</tr>
+{% endfor %}

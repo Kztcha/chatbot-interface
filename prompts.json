@@ -1,0 +1,105 @@
+{
+  "select_type": "Quel type d'e-mail souhaitez-vous rédiger ?",
+  "types": [
+    "Réunion",
+    "Rendez-vous",
+    "Devis",
+    "Réclamation",
+    "Demande d'information"
+  ],
+  "initial": "À qui est destiné cet e-mail ?\nQuel est son objet ?",
+  "form_fields": {
+    "Réunion": [
+      {
+        "id": "date",
+        "label": "Date de la réunion",
+        "type": "text"
+      },
+      {
+        "id": "heure",
+        "label": "Heure prévue",
+        "type": "text"
+      },
+      {
+        "id": "lieu",
+        "label": "Lieu de la réunion",
+        "type": "text"
+      },
+      {
+        "id": "participants",
+        "label": "Participants attendus",
+        "type": "text"
+      }
+    ],
+    "Rendez-vous": [
+      {
+        "id": "date",
+        "label": "Date du rendez-vous",
+        "type": "text"
+      },
+      {
+        "id": "heure",
+        "label": "Heure souhaitée",
+        "type": "text"
+      },
+      {
+        "id": "motif",
+        "label": "Motif du rendez-vous",
+        "type": "text"
+      }
+    ],
+    "Devis": [
+      {
+        "id": "service_demande",
+        "label": "Service demandé",
+        "type": "text"
+      },
+      {
+        "id": "budget_estime",
+        "label": "Budget estimé",
+        "type": "text"
+      },
+      {
+        "id": "delai_souhaite",
+        "label": "Délai souhaité",
+        "type": "text"
+      }
+    ],
+    "Réclamation": [
+      {
+        "id": "numero_contrat",
+        "label": "Numéro de contrat",
+        "type": "text"
+      },
+      {
+        "id": "motif_reclamation",
+        "label": "Motif de la réclamation",
+        "type": "text"
+      },
+      {
+        "id": "demande_specifique",
+        "label": "Demande spécifique",
+        "type": "text"
+      }
+    ],
+    "Demande d'information": [
+      {
+        "id": "sujet",
+        "label": "Sujet de la demande",
+        "type": "text"
+      },
+      {
+        "id": "informations_souhaitees",
+        "label": "Informations souhaitées",
+        "type": "text"
+      }
+    ]
+  },
+  "prompts": {
+    "Réunion": "Tu es un assistant administratif. Rédige un e-mail professionnel pour organiser une réunion.\n- Destinataire : {dest}\n- Objet : {obj}\n- Date : {date}\n- Heure : {heure}\n- Lieu : {lieu}\n- Participants : {participants}\n\nL'e-mail doit inclure :\n1. Un objet clair et concis\n2. Une salutation professionnelle\n3. Le contexte et l'objectif de la réunion\n4. Les informations pratiques (date, heure, lieu)\n5. La liste des participants\n6. Une formule de politesse\nTon formel et professionnel, en français.",
+    "Rendez-vous": "Tu es un assistant administratif. Rédige un e-mail professionnel pour fixer un rendez-vous.\n- Destinataire : {dest}\n- Objet : {obj}\n- Date : {date}\n- Heure : {heure}\n- Motif : {motif}\n\nL'e-mail doit inclure :\n1. Un objet clair\n2. Une salutation professionnelle\n3. L'objectif du rendez-vous\n4. La proposition de date et heure\n5. Une formule de politesse\nTon courtois et professionnel, en français.",
+    "Devis": "Tu es un assistant administratif. Rédige un e-mail professionnel pour demander un devis.\n- Destinataire : {dest}\n- Objet : {obj}\n- Service : {service_demande}\n- Budget : {budget_estime}\n- Délai : {delai_souhaite}\n\nL'e-mail doit inclure :\n1. Un objet précis\n2. Une salutation professionnelle\n3. La description détaillée du besoin\n4. Les contraintes (budget, délai)\n5. Une demande de retour\n6. Une formule de politesse\nTon professionnel et direct, en français.",
+    "Réclamation": "Tu es un assistant administratif. Rédige un e-mail professionnel pour une réclamation.\n- Destinataire : {dest}\n- Objet : {obj}\n- N° Contrat : {numero_contrat}\n- Motif : {motif_reclamation}\n- Demande : {demande_specifique}\n\nL'e-mail doit inclure :\n1. Un objet clair mentionnant la réclamation\n2. Une salutation professionnelle\n3. L'exposé du problème\n4. Les références nécessaires\n5. La demande de résolution\n6. Une formule de politesse ferme mais courtoise\nTon ferme mais respectueux, en français.",
+    "Demande d'information": "Tu es un assistant administratif. Rédige un e-mail professionnel pour demander des informations.\n- Destinataire : {dest}\n- Objet : {obj}\n- Sujet : {sujet}\n- Informations demandées : {informations_souhaitees}\n\nL'e-mail doit inclure :\n1. Un objet précis\n2. Une salutation professionnelle\n3. Le contexte de la demande\n4. Les informations souhaitées\n5. Une formule de politesse\nTon courtois et professionnel, en français."
+  }
+}

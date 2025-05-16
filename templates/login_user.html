@@ -1,0 +1,48 @@
+<!--
+  login_user.html - Page de connexion pour les utilisateurs du chatbot
+  Permet à un utilisateur classique de se connecter à son compte
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Connexion Utilisateur</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/static/base.css">
+    <link rel="stylesheet" href="/static/forms.css">
+    <link rel="stylesheet" href="/static/login.css">
+    <link rel="stylesheet" href="/static/animations.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Connexion</h2>
+
+        <form method="POST">
+            <!-- Champ identifiant -->
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" id="username" name="username" required
+                       placeholder="Votre identifiant"
+                       autocomplete="username">
+            </div>
+
+            <!-- Champ mot de passe -->
+            <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required
+                       placeholder="Votre mot de passe"
+                       autocomplete="current-password">
+            </div>
+
+            <button type="submit">Se connecter</button>
+        </form>
+
+        <p style="margin-top: 1em;">Pas encore de compte ? <a href="/signup">Créer un compte</a></p>
+    </div>
+
+    <script src="/static/particles.js"></script>
+</body>
+</html>

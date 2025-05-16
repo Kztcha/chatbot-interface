@@ -1,0 +1,86 @@
+<!--
+  index.html - Page principale de l'application
+  Cette page contient la structure de base de l'interface de chat :
+  - En-tête avec titre animé
+  - Zone de chat avec messages
+  - Zone de formulaire dynamique
+  - Effets visuels (particules, réflexions)
+  - Chargement des scripts et styles nécessaires
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assistant E-mail – Chatbot</title>
+  <!-- Chargement des styles CSS -->
+  <link rel="stylesheet" href="static/base.css">
+  <link rel="stylesheet" href="static/animations.css">
+  <link rel="stylesheet" href="static/chat.css">
+  <link rel="stylesheet" href="static/forms.css">
+</head>
+<body>
+  <div class="reflection-container">
+    <div id="particle-container"></div>
+
+    <!-- Conteneur principal de l'application -->
+    <div class="chat-container">
+      <!-- Bouton repli/dépli -->
+      <button id="toggle-header" class="toggle-btn">▲</button>
+
+      <!-- En-tête avec titre et actions -->
+      <div class="header-row" id="header-content">
+        <h1 class="animated-title">
+          Assistant de Rédaction d'E-mail
+
+          {% if user_info %}
+            <div class="session-banner">
+              Connecté : <strong>{{ user_info.username }}</strong> |
+              <a href="/logout-user">Déconnexion</a>
+            </div>
+          {% elif session.admin_logged_in %}
+            <div class="session-banner">
+              Connecté (admin) : {{ session.admin_username }} |
+              <a href="/logout">Déconnexion</a>
+            </div>
+          {% endif %}
+
+          <!-- Zone pour les boutons d'action (Recommencer/Régénérer) -->
+          <div id="header-actions" class="header-actions"></div>
+          <!-- Indicateur de chargement -->
+          <div id="loading" style="display:none;">
+            <div class="spinner"></div>
+          </div>
+        </h1>
+      </div>
+
+      <!-- Zone principale du chat -->
+      <div id="chat-container">
+        <div id="chat-box"><!-- Les messages seront injectés ici dynamiquement --></div>
+        <div id="form-container"><!-- Les formulaires seront injectés ici dynamiquement --></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chargement des scripts JavaScript -->
+  <script src="static/ui.js"></script>
+  <script src="static/forms.js"></script>
+  <script src="static/chat.js"></script>
+  <script src="/static/particles.js"></script>
+
+  <!-- Script de repli de l'en-tête -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleBtn = document.getElementById("toggle-header");
+      const header = document.getElementById("header-content");
+      let visible = true;
+
+      toggleBtn.addEventListener("click", () => {
+        visible = !visible;
+        header.style.display = visible ? "flex" : "none";
+        toggleBtn.textContent = visible ? "▲" : "▼";
+      });
+    });
+  </script>
+</body>
+</html>

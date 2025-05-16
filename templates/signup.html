@@ -1,0 +1,48 @@
+<!--
+  signup.html - Page d'inscription utilisateur classique (non admin)
+  Permet aux utilisateurs finaux de créer un compte pour utiliser le chatbot
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inscription</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/static/base.css">
+    <link rel="stylesheet" href="/static/forms.css">
+    <link rel="stylesheet" href="/static/login.css">
+    <link rel="stylesheet" href="/static/animations.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Créer un compte</h2>
+
+        <form method="POST">
+            <!-- Nom d'utilisateur -->
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" id="username" name="username" required
+                       placeholder="Votre nom d'utilisateur"
+                       autocomplete="username">
+            </div>
+
+            <!-- Mot de passe -->
+            <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required
+                       placeholder="Choisissez un mot de passe"
+                       autocomplete="new-password">
+            </div>
+
+            <button type="submit">S'inscrire</button>
+        </form>
+
+        <p style="margin-top: 1em;">Déjà inscrit ? <a href="/login-user">Connexion</a></p>
+    </div>
+
+    <script src="/static/particles.js"></script>
+</body>
+</html>

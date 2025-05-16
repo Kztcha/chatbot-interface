@@ -1,0 +1,105 @@
+<!--
+  admin_prompts.html - Interface d'administration des prompts
+  Cette page permet aux administrateurs de gérer les prompts du chatbot :
+  - Gestion des types d'emails (ajout/suppression)
+  - Gestion des champs de formulaire par type
+  - Édition des prompts
+  - Interface interactive et intuitive
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin – Prompts</title>
+    
+    <!-- Styles de base -->
+    <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/admin.css">
+    <link rel="stylesheet" href="static/animations.css">
+
+</head>
+<body>
+  <div id="particle-container"></div>
+
+    <!-- En-tête avec informations de connexion -->
+    <header>
+        <h1>Admin - Prompts</h1>
+        <p>Connecté : <strong>{{ current }}</strong> | <a href="/logout">Déconnexion</a></p>
+        {% if session.admin_role == 'super' %}
+            <p><a href="/admin/users">🔧 Gérer les utilisateurs</a></p>
+        {% endif %}
+    </header>
+
+    <!-- Section principale -->
+    <div class="section">
+        <!-- Sélecteur de type -->
+        <div class="type-selector">
+            <select id="type-select">
+                <option value="">Sélectionnez un type...</option>
+                {% for type in prompts_data.types %}
+                    <option value="{{ type }}">{{ type }}</option>
+                {% endfor %}
+            </select>
+            <button onclick="showAddTypeForm()">+ Nouveau type</button>
+            <button onclick="deleteCurrentType()" class="delete" id="delete-type-btn" style="display: none;">Supprimer le type</button>
+        </div>
+
+        <!-- Formulaire d'ajout de type -->
+        <div id="add-type-form" class="form-container" style="display: none;">
+            <h3>Ajouter un nouveau type</h3>
+            <div class="form-group">
+                <label for="new-type-name">Nom du type :</label>
+                <input type="text" id="new-type-name" placeholder="Ex: Conférence">
+            </div>
+            <button onclick="addType()">Ajouter</button>
+            <button onclick="hideAddTypeForm()">Annuler</button>
+        </div>
+
+        <!-- Conteneur des champs de formulaire -->
+        <div id="fields-container" class="form-container" style="display: none;">
+            <h3>Champs du formulaire</h3>
+            <div id="field-list" class="field-list"></div>
+            <button onclick="showAddFieldForm()">+ Nouveau champ</button>
+        </div>
+
+        <!-- Formulaire d'ajout de champ -->
+        <div id="add-field-form" class="form-container" style="display: none;">
+            <h3>Ajouter un nouveau champ</h3>
+            <div class="form-group">
+                <label for="field-id">ID du champ :</label>
+                <input type="text" id="field-id" placeholder="Ex: date">
+            </div>
+            <div class="form-group">
+                <label for="field-label">Label :</label>
+                <input type="text" id="field-label" placeholder="Ex: Date de l'événement">
+            </div>
+            <button onclick="addField()">Ajouter</button>
+            <button onclick="hideAddFieldForm()">Annuler</button>
+        </div>
+
+        <!-- Éditeur de prompt -->
+        <div id="prompt-container" class="form-container" style="display: none;">
+            <h3>Prompt</h3>
+            <div class="prompt-editor">
+                <textarea id="prompt-text"></textarea>
+            </div>
+            <button onclick="updatePrompt()">Enregistrer</button>
+        </div>
+
+        <!-- Zone de messages -->
+        <div id="msg-container"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="static/admin.js"></script>
+    <script src="static/admin_prompts_data.js"></script>
+    <script src="static/admin_prompts.js"></script>
+    <script src="/static/particles.js"></script>
+
+    <script>
+        // Initialisation des données
+        initPromptsData({{ prompts_data|tojson|safe }});
+    </script>
+</body>
+</html>

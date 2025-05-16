@@ -1,0 +1,83 @@
+/**
+ * animations.css - Toutes les animations du site
+ * Ce fichier centralise toutes les animations de l'interface:
+ */
+
+/* nuh uh pas de commentaire ici non plus ce nest pas un fichier vitale */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }   
+    50% { background-position: 100% 50%; } 
+    100% { background-position: 0% 50%; }  
+}
+
+@keyframes titleColorShift {
+    0% { color: #ffffff; }                
+    50% { color: #eeeeee; }               
+    100% { color: #ffffff; }              
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }       
+    100% { transform: rotate(360deg); }  
+}
+
+@keyframes floatParticle {
+    0% {
+        transform: translateY(100vh) scale(0.5); 
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes popMessage {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes gradientBG-select {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
+}
+
+.particle {
+    position: absolute;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    animation: floatParticle 8s linear infinite;
+    pointer-events: none;
+    user-select: none;
+    z-index: -1;
+} 

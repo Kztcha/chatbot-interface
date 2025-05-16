@@ -1,0 +1,50 @@
+<!--
+  login.html - Page de connexion administrateur
+  Cette page permet aux administrateurs de se connecter :
+  - Formulaire de connexion simple et sécurisé
+  - Validation des champs côté client
+  - Styles cohérents avec le reste de l'application
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Connexion Admin</title>
+    
+    <!-- Chargement des styles CSS -->
+    <link rel="stylesheet" href="static/base.css">
+    <link rel="stylesheet" href="static/forms.css">
+    <link rel="stylesheet" href="static/login.css">
+    <link rel="stylesheet" href="static/animations.css">
+
+</head>
+<body>
+    <!-- Conteneur principal du formulaire -->
+    <div class="login-container">
+        <h2>Connexion Admin</h2>
+        <!-- Formulaire de connexion -->
+        <form method="POST">
+            <!-- Champ identifiant -->
+            <div class="form-group">
+                <label for="username">Identifiant :</label>
+                <input type="text" id="username" name="username" required 
+                       placeholder="Votre identifiant"
+                       autocomplete="username">
+            </div>
+
+            <!-- Champ mot de passe -->
+            <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" required
+                       placeholder="Votre mot de passe"
+                       autocomplete="current-password">
+            </div>
+
+            <!-- Bouton de soumission -->
+            <button type="submit">Connexion</button>
+        </form>
+    </div>
+    <script src="/static/particles.js"></script>
+</body>
+</html>
