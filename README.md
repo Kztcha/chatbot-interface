@@ -82,7 +82,7 @@ Structure
 
 Serveur Ubuntu : 
 
-192.168.200.54 (jarvis, jarvis972/C@pnord972) 
+XXX.XXX.XXX.XXX
 
 🔹 Tous les services sont hébergés sur ce serveur via Docker : 
 
